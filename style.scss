@@ -1,0 +1,982 @@
+/**
+ * @author [Harish C Jingade]
+ * @email [harishcjingade5064@gmail.com]
+ * @create date 2020-09-12 19:57:01
+ * @modify date 2020-09-12 19:58:53
+ * @desc [GamesKraft UI Assignment]
+ */
+
+$HeaderColor: #3c2563;
+$white: #FFFFFF;
+$black: #000000;
+$bodybackground: #fcfbfc;
+$headerbackground: #e9a615;
+$hoverButton: #e5e5e5;
+$contentHeading: #605e80;
+$contentParagraph: #605e80ec;
+$thridGridDiv: #cdb1fe;
+$descriptionBackground: #ededed;
+$gallerySubCntrBackground: antiquewhite;
+$galleryCntrBackgroundOne: #ffb497;
+$galleryCntrBackgroundThree: #afa5fe;
+$galleryCntrBackgroundFour: #fffca5;
+$galleryCntrBackgroundFive: #a5ffda;
+$galleryCntrBackgroundSix: #ca8ae5;
+
+// Variables
+$break-small: 768px;
+$break-medium: 992px;
+$break-large: 1200px;
+
+@mixin respond-to($media) {
+    @if $media==xs {
+        @media only screen and (max-width: $break-small - 1) {
+            @content;
+        }
+    }
+
+    @else if $media==sm {
+        @media only screen and (min-width: $break-small) and (max-width: $break-medium - 1) {
+            @content;
+        }
+    }
+
+    @else if $media==md {
+        @media only screen and (min-width: $break-medium) and (max-width: $break-large - 1) {
+            @content;
+        }
+    }
+
+    @else if $media==lg {
+        @media only screen and (min-width: $break-large) {
+            @content;
+        }
+    }
+
+    @else if $media==ls {
+        @media only screen and (min-device-width: 480px) and (max-device-width: 736px) and (orientation: landscape) {
+            @content;
+        }
+    }
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    letter-spacing: 0.4px;
+}
+
+body {
+    font-family: 'Roboto';
+}
+
+.headerCntr {
+    background-color: $headerbackground;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    padding: 10px;
+
+    @include respond-to(xs) {
+        text-align: left;
+    }
+
+    .headerRightCntr {
+        width: 70%;
+        color: $white;
+        font-size: 24px;
+        display: inline-block;
+        vertical-align: middle;
+
+        @include respond-to(xs) {
+            width: 60%;
+            font-size: 12px;
+            margin-right: 20px;
+        }
+
+        .headerContactLink {
+            color: $black;
+        }
+    }
+
+    .headerLeftCntr {
+        width: 20%;
+        display: inline-block;
+        vertical-align: middle;
+
+        @include respond-to(xs) {
+            width: 30%;
+        }
+
+        .headerBtn {
+            color: $headerbackground;
+            background-color: $white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+
+            @include respond-to(xs) {
+                font-size: 12px;
+            }
+
+            &:hover {
+                background-color: $hoverButton;
+            }
+        }
+    }
+}
+
+.contentCntr {
+    margin: 70px 0 30px 0;
+    text-align: center;
+
+    @include respond-to(xs) {
+        margin: 20px 0;
+    }
+
+    .contentCntr--Heading {
+        font-family: 'Montserrat', sans-serif;
+        font-size: -webkit-xxx-large;
+        font-weight: 900;
+        color: $contentHeading;
+
+        @include respond-to(xs) {
+            font-size: 22px;
+        }
+    }
+
+    .contentCntr--discreption {
+        width: 38%;
+        margin: 0 auto;
+        color: $contentParagraph;
+
+        @include respond-to(xs) {
+            width: 88%;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+    }
+}
+
+.gridCntr {
+    text-align: center;
+    width: 100%;
+
+    @include respond-to(xs) {
+        width: 100%;
+    }
+
+    .gridSection--one,
+    .gridSection--two {
+        display: inline-block;
+        vertical-align: middle;
+        width: 30%;
+        cursor: pointer;
+        transition: 1s ease;
+
+        &:hover {
+            -webkit-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+            transform: scale(1.05);
+            transition: 1s ease;
+            color: $headerbackground;
+        }
+
+        @include respond-to(xs) {
+            width: 100%;
+        }
+
+        .gridColorSection {
+            height: 240px;
+            width: 420px;
+            background-color: $headerbackground;
+            margin: 0 auto;
+
+            @include respond-to(xs) {
+                height: 200px;
+                width: 300px;
+            }
+        }
+
+        .gridHeader {
+            text-align: left;
+            margin: 20px 7px;
+            font-size: 20px;
+            font-weight: bold;
+            color: $contentHeading;
+
+            &:hover {
+                color: $headerbackground;
+            }
+
+            @include respond-to(xs) {
+                font-size: 16px;
+                margin: 10px 12px;
+            }
+        }
+
+        .gridContent {
+            text-align: left;
+            margin-left: 7px;
+            color: $contentParagraph;
+
+            &:hover {
+                color: $headerbackground;
+            }
+
+            @include respond-to(xs) {
+                font-size: 14px;
+                margin: 10px 12px;
+            }
+        }
+
+        .gridReadMoreTxt {
+            text-align: left;
+            margin: 20px 7px;
+            color: $contentParagraph;
+
+            &:hover {
+                color: $headerbackground;
+                text-decoration: underline;
+            }
+
+            @include respond-to(xs) {
+                font-size: 16px;
+                margin: 10px 12px;
+            }
+        }
+    }
+
+    .gridSection--three {
+        display: inline-block;
+        vertical-align: middle;
+        width: 30%;
+        cursor: pointer;
+        transition: 1s ease;
+
+        &:hover {
+            -webkit-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+            transform: scale(1.05);
+            transition: 1s ease;
+            color: $headerbackground;
+        }
+
+        @include respond-to(xs) {
+            width: 100%;
+        }
+
+        .gridColorSectionThird {
+            height: 240px;
+            width: 420px;
+            background-color: $thridGridDiv;
+            margin: 0 auto;
+
+            @include respond-to(xs) {
+                height: 200px;
+                width: 300px;
+            }
+        }
+
+        .gridHeader {
+            text-align: left;
+            margin: 20px 7px;
+            font-size: 20px;
+            font-weight: bold;
+            color: $contentHeading;
+
+            &:hover {
+                color: $headerbackground;
+            }
+
+            @include respond-to(xs) {
+                font-size: 16px;
+                margin: 10px 12px;
+            }
+        }
+
+        .gridContent {
+            text-align: left;
+            margin-left: 7px;
+            color: $contentParagraph;
+
+            &:hover {
+                color: $headerbackground;
+            }
+
+            @include respond-to(xs) {
+                font-size: 14px;
+                margin: 10px 12px;
+            }
+        }
+
+        .gridReadMoreTxt {
+            text-align: left;
+            margin: 20px 7px;
+            color: $contentParagraph;
+
+            &:hover {
+                color: $headerbackground;
+                text-decoration: underline;
+            }
+
+            @include respond-to(xs) {
+                font-size: 16px;
+                margin: 10px 12px;
+            }
+        }
+    }
+}
+
+.compelteDiscriptionCntr {
+    width: 100%;
+    margin-top: 60px;
+    background-color: $descriptionBackground;
+
+    @include respond-to(xs) {
+        margin-top: 20px;
+    }
+
+    .videoCntr {
+        width: 46%;
+        display: inline-block;
+        vertical-align: middle;
+        background-color: $headerbackground;
+
+        @include respond-to(xs) {
+            width: 100%;
+            background-color: $white;
+            text-align: center;
+        }
+
+        .videoCntr--section {
+            width: 660px;
+            height: 400px;
+
+            @include respond-to(xs) {
+                width: 300px;
+                height: 170px;
+            }
+        }
+    }
+
+    .descriptionCntr {
+        width: 49%;
+        margin-left: 40px;
+        display: inline-block;
+        vertical-align: middle;
+
+        @include respond-to(xs) {
+            width: 90%;
+            margin: 0px 16px;
+        }
+
+        .descriptionCntr--section {
+            margin: 30px 0;
+
+            @include respond-to(xs) {}
+
+            .descriptionCntr--img {
+                display: inline-block;
+                vertical-align: middle;
+                width: 60px;
+                margin: 10px;
+            }
+
+            .descriptionCntr--details {
+                display: inline-block;
+                vertical-align: middle;
+                width: 52%;
+
+                @include respond-to(xs) {
+                    width: 70%;
+                }
+
+                &__Header {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin: 10px 0;
+                    color: $contentHeading;
+
+                    @include respond-to(xs) {
+                        font-size: 16px;
+                    }
+                }
+
+                &__Content {
+                    color: $contentParagraph;
+
+                    @include respond-to(xs) {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.featuredCntr {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+
+    @include respond-to(xs) {
+        margin-top: 20px;
+    }
+
+    .featuredCntrHeader {
+        font-family: 'Montserrat', sans-serif;
+        font-size: -webkit-xxx-large;
+        font-weight: 900;
+        margin-bottom: 10px;
+        color: $contentHeading;
+
+        @include respond-to(xs) {
+            font-size: 22px;
+        }
+    }
+
+    .featuredCntrContent {
+        color: $contentParagraph;
+        width: 32%;
+        margin: 0 auto;
+
+        @include respond-to(xs) {
+            font-size: 12px;
+            width: 80%;
+        }
+    }
+}
+
+.navCntr {
+    width: 100%;
+
+    ul {
+        list-style-type: none;
+        margin: 0 auto;
+        display: table;
+
+        @include respond-to(xs) {
+            text-align: center;
+        }
+
+        li {
+            padding: 6px 0;
+            display: inline-block;
+            margin: 10px;
+
+            @include respond-to(xs) {
+                margin: 0;
+                margin-right: 10px;
+            }
+
+            a {
+                position: relative;
+                display: block;
+                text-decoration: none;
+                color: $black;
+                padding: 4px 0;
+                transition: 0.5s;
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    width: 100%;
+                    height: 3px;
+                    top: 100%;
+                    left: 0;
+                    background: $headerbackground;
+                    transition: transform 0.5s;
+                    transform: scaleX(0);
+                    transform-origin: right;
+                }
+
+                &:hover {
+                    color: $headerbackground;
+
+                    &::after {
+                        transform: scaleX(1);
+                        transform-origin: left;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gallerySectionCntr {
+    width: 100%;
+    margin-bottom: 20px;
+
+    .gallerySection {
+        &__first {
+            width: 32.2%;
+            height: 260px;
+            margin: 5px;
+            display: inline-block;
+            vertical-align: middle;
+            background-color: $galleryCntrBackgroundOne;
+            position: relative;
+            cursor: pointer;
+
+            @include respond-to(xs) {
+                width: 90%;
+                margin: 0 auto;
+                display: table;
+                margin-top: 10px;
+            }
+
+            .gallerySubCntr {
+                position: absolute;
+                bottom: 0;
+                padding: 20px;
+                background-color: $gallerySubCntrBackground;
+                font-weight: bold;
+                width: 100%;
+
+                @include respond-to(xs) {
+                    padding: 16px;
+                }
+
+                .gallerySubCntrtxt {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 70%;
+
+                    @include respond-to(xs) {
+                        font-size: 12px;
+                        width: 66%;
+                    }
+                }
+
+                .gallerySubCntrAddbtn {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 10%;
+                    text-align: center;
+                    margin-right: 10px;
+                    background-color: $headerbackground;
+                }
+
+                .gallerySubCntrCopybtn {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 10%;
+                    text-align: center;
+                    margin-right: 10px;
+                    background-color: $headerbackground;
+                }
+            }
+        }
+
+        &__second {
+            width: 32.2%;
+            height: 260px;
+            margin: 5px;
+            display: inline-block;
+            vertical-align: middle;
+            background-color: $headerbackground;
+            position: relative;
+            cursor: pointer;
+
+            @include respond-to(xs) {
+                width: 90%;
+                margin: 0 auto;
+                display: table;
+                margin-top: 10px;
+            }
+
+            .gallerySubCntr {
+                position: absolute;
+                bottom: 0;
+                padding: 20px;
+                background-color: $gallerySubCntrBackground;
+                font-weight: bold;
+                width: 100%;
+                display: none;
+
+                @include respond-to(xs) {
+                    padding: 16px;
+                }
+
+
+                .gallerySubCntrtxt {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 70%;
+
+                    @include respond-to(xs) {
+                        font-size: 12px;
+                        width: 66%;
+                    }
+                }
+
+                .gallerySubCntrAddbtn {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 10%;
+                    text-align: center;
+                    margin-right: 10px;
+                    background-color: $headerbackground;
+                }
+
+                .gallerySubCntrCopybtn {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 10%;
+                    text-align: center;
+                    margin-right: 10px;
+                    background-color: $headerbackground;
+                }
+            }
+
+            &:hover .gallerySubCntr {
+                display: block;
+                transition: 3s ease;
+            }
+        }
+
+        &__third {
+            width: 32.2%;
+            height: 260px;
+            margin: 5px;
+            display: inline-block;
+            vertical-align: middle;
+            background-color: $galleryCntrBackgroundThree;
+            position: relative;
+            cursor: pointer;
+
+            @include respond-to(xs) {
+                width: 90%;
+                margin: 0 auto;
+                display: table;
+                margin-top: 10px;
+            }
+
+            .gallerySubCntr {
+                position: absolute;
+                bottom: 0;
+                padding: 20px;
+                background-color: $gallerySubCntrBackground;
+                font-weight: bold;
+                width: 100%;
+                display: none;
+
+                @include respond-to(xs) {
+                    padding: 16px;
+                }
+
+
+                .gallerySubCntrtxt {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 70%;
+
+                    @include respond-to(xs) {
+                        font-size: 12px;
+                        width: 66%;
+                    }
+                }
+
+                .gallerySubCntrAddbtn {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 10%;
+                    text-align: center;
+                    margin-right: 10px;
+                    background-color: $headerbackground;
+                }
+
+                .gallerySubCntrCopybtn {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 10%;
+                    text-align: center;
+                    margin-right: 10px;
+                    background-color: $headerbackground;
+                }
+            }
+
+            &:hover .gallerySubCntr {
+                display: block;
+                transition: 3s ease;
+            }
+        }
+
+        &__fourth {
+            width: 32.2%;
+            height: 260px;
+            margin: 5px;
+            display: inline-block;
+            vertical-align: middle;
+            background-color: $galleryCntrBackgroundFour;
+            position: relative;
+            cursor: pointer;
+
+            @include respond-to(xs) {
+                width: 90%;
+                margin: 0 auto;
+                display: table;
+                margin-top: 10px;
+            }
+
+            .gallerySubCntr {
+                position: absolute;
+                bottom: 0;
+                padding: 20px;
+                background-color: $gallerySubCntrBackground;
+                font-weight: bold;
+                width: 100%;
+                display: none;
+
+                @include respond-to(xs) {
+                    padding: 16px;
+                }
+
+
+                .gallerySubCntrtxt {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 70%;
+
+                    @include respond-to(xs) {
+                        font-size: 12px;
+                        width: 66%;
+                    }
+                }
+
+                .gallerySubCntrAddbtn {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 10%;
+                    text-align: center;
+                    margin-right: 10px;
+                    background-color: $headerbackground;
+                }
+
+                .gallerySubCntrCopybtn {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 10%;
+                    text-align: center;
+                    margin-right: 10px;
+                    background-color: $headerbackground;
+                }
+            }
+
+            &:hover .gallerySubCntr {
+                display: block;
+                transition: 3s ease;
+            }
+        }
+
+        &__fifth {
+            width: 32.2%;
+            height: 260px;
+            margin: 5px;
+            display: inline-block;
+            vertical-align: middle;
+            background-color: $galleryCntrBackgroundFive;
+            position: relative;
+            cursor: pointer;
+
+            @include respond-to(xs) {
+                width: 90%;
+                margin: 0 auto;
+                display: table;
+                margin-top: 10px;
+            }
+
+            .gallerySubCntr {
+                position: absolute;
+                bottom: 0;
+                padding: 20px;
+                background-color: $gallerySubCntrBackground;
+                font-weight: bold;
+                width: 100%;
+                display: none;
+
+                @include respond-to(xs) {
+                    padding: 16px;
+                }
+
+
+                .gallerySubCntrtxt {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 70%;
+
+                    @include respond-to(xs) {
+                        font-size: 12px;
+                        width: 66%;
+                    }
+                }
+
+                .gallerySubCntrAddbtn {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 10%;
+                    text-align: center;
+                    margin-right: 10px;
+                    background-color: $headerbackground;
+                }
+
+                .gallerySubCntrCopybtn {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 10%;
+                    text-align: center;
+                    margin-right: 10px;
+                    background-color: $headerbackground;
+                }
+            }
+
+            &:hover .gallerySubCntr {
+                display: block;
+                transition: 3s ease;
+            }
+        }
+
+        &__sixsth {
+            width: 32.2%;
+            height: 260px;
+            margin: 5px;
+            display: inline-block;
+            vertical-align: middle;
+            background-color: $galleryCntrBackgroundSix;
+            position: relative;
+            cursor: pointer;
+
+            @include respond-to(xs) {
+                width: 90%;
+                margin: 0 auto;
+                display: table;
+                margin-top: 10px;
+            }
+
+            .gallerySubCntr {
+                position: absolute;
+                bottom: 0;
+                padding: 20px;
+                background-color: $gallerySubCntrBackground;
+                font-weight: bold;
+                width: 100%;
+                display: none;
+
+                @include respond-to(xs) {
+                    padding: 16px;
+                }
+
+
+                .gallerySubCntrtxt {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 70%;
+
+                    @include respond-to(xs) {
+                        font-size: 12px;
+                        width: 66%;
+                    }
+                }
+
+                .gallerySubCntrAddbtn {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 10%;
+                    text-align: center;
+                    margin-right: 10px;
+                    background-color: $headerbackground;
+                }
+
+                .gallerySubCntrCopybtn {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 10%;
+                    text-align: center;
+                    margin-right: 10px;
+                    background-color: $headerbackground;
+                }
+            }
+
+            &:hover .gallerySubCntr {
+                display: block;
+                transition: 3s ease;
+            }
+        }
+    }
+}
+
+.footerSectionCntr {
+    padding: 60px 0;
+    background-color: $descriptionBackground;
+    width: 100%;
+
+    @include respond-to(xs) {
+        padding: 20px 0;
+    }
+
+    .footerCntr {
+        margin: 0 auto;
+        display: table;
+        border-left: 5px solid $headerbackground;
+        width: 80%;
+        padding: 20px;
+        background-color: $white;
+
+        .footerRightCntr {
+            display: inline-block;
+            vertical-align: middle;
+            width: 80%;
+
+            @include respond-to(xs) {
+                width: 100%;
+            }
+
+            .footerHeadingTxt {
+                font-size: 19px;
+                font-weight: 600;
+                color: $contentHeading;
+
+                @include respond-to(xs) {
+                    font-size: 16px;
+                    margin-bottom: 6px;
+                }
+            }
+
+            .footerParagraphTxt {
+                font-size: 12px;
+                color: $contentParagraph;
+
+                @include respond-to(xs) {
+                    margin: 10px 0;
+                }
+            }
+        }
+
+        .footerLefttCntr {
+            display: inline-block;
+            vertical-align: middle;
+            padding: 10px;
+            background-color: $headerbackground;
+            color: $white;
+            font-size: 14px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $galleryCntrBackgroundOne;
+            }
+
+            @include respond-to(xs) {}
+        }
+    }
+}
